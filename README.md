@@ -31,9 +31,9 @@ Sistem ini menggunakan mikrokontroler ESP32 sebagai pusat kendali yang terhubung
 * Pin negatif (-) buzzer dihubungkan ke GND ESP32.
 atau jika menggunakan modul buzzer:
 
-VCC → 3.3V/5V
-GND → GND
-SIG → GPIO 12
+* VCC → 3.3V/5V
+* GND → GND
+* SIG → GPIO 12
 
 Pada Program 2, buzzer dikendalikan menggunakan logika digital HIGH dan LOW melalui fungsi digitalWrite(). Ketika suhu yang terdeteksi sensor DHT11 melebihi 32°C, ESP32 memberikan sinyal HIGH sehingga buzzer menyala. Sebaliknya, jika suhu berada pada kondisi normal, ESP32 memberikan sinyal LOW sehingga buzzer mati.
 
