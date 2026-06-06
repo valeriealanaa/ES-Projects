@@ -27,8 +27,8 @@ Sistem ini menggunakan mikrokontroler ESP32 sebagai pusat kendali yang terhubung
    Buzzer berfungsi sebagai alarm ketika suhu lingkungan melebihi batas yang telah ditentukan.
 
    **Buzzer (Program 2)**
-Pin positif (+) buzzer dihubungkan ke GPIO 12 ESP32.
-Pin negatif (-) buzzer dihubungkan ke GND ESP32.
+* Pin positif (+) buzzer dihubungkan ke GPIO 12 ESP32.
+* Pin negatif (-) buzzer dihubungkan ke GND ESP32.
 atau jika menggunakan modul buzzer:
 
 VCC → 3.3V/5V
