@@ -145,3 +145,50 @@ Mikrokontroler berfungsi sebagai pusat pengendali sistem. Perangkat ini membaca 
 * LED merah dan buzzer aktif saat sensor api mendeteksi adanya nyala api.
 * Sistem melakukan pemantauan suhu, kelembapan, dan keberadaan api secara terus-menerus untuk memberikan peringatan secara real-time.
 
+### PERTANIAN ###
+
+Sistem ini menggunakan ESP32 sebagai mikrokontroler utama yang terhubung dengan sensor kelembapan tanah (soil moisture), sensor suhu dan kelembapan udara DHT11/DHT22, modul relay, pompa air, dan buzzer sebagai indikator peringatan.
+
+#### 1. Sensor Soil Moisture
+
+* Pin VCC sensor dihubungkan ke pin 3.3V ESP32.
+* Pin GND sensor dihubungkan ke GND ESP32.
+* Pin AO (Analog Output) sensor dihubungkan ke GPIO 34 ESP32.
+
+Sensor soil moisture digunakan untuk mengukur tingkat kelembapan tanah. Nilai analog yang dihasilkan akan digunakan untuk menentukan apakah kondisi tanah kering, normal, atau basah.
+
+#### 2. Sensor DHT11 / DHT22
+
+* Pin VCC sensor dihubungkan ke pin 3.3V ESP32.
+* Pin GND sensor dihubungkan ke GND ESP32.
+* Pin DATA sensor dihubungkan ke GPIO 4 ESP32.
+
+Sensor DHT11/DHT22 digunakan untuk mengukur suhu dan kelembapan udara di sekitar tanaman. Data ini digunakan sebagai parameter tambahan untuk menentukan kebutuhan penyiraman.
+
+#### 3. Modul Relay
+
+* Pin VCC relay dihubungkan ke pin 5V ESP32 atau sumber daya eksternal.
+* Pin GND relay dihubungkan ke GND ESP32.
+* Pin IN relay dihubungkan ke GPIO 26 ESP32.
+
+Modul relay berfungsi sebagai sakelar elektronik yang menghubungkan dan memutus aliran listrik ke pompa air. Relay akan aktif ketika sistem mendeteksi kondisi tanah kering atau suhu udara tinggi dengan kelembapan udara rendah.
+
+#### 4. Pompa Air
+
+* Salah satu kabel pompa dihubungkan ke terminal NO (Normally Open) relay.
+* Kabel lainnya dihubungkan ke sumber daya pompa.
+* Terminal COM relay dihubungkan ke sumber tegangan pompa.
+
+Pompa air berfungsi untuk menyiram tanaman secara otomatis ketika sistem mendeteksi bahwa tanaman membutuhkan air.
+
+#### 5. Buzzer (Versi Program dengan Buzzer)
+
+* Pin positif (+) buzzer dihubungkan ke GPIO 25 ESP32.
+* Pin negatif (-) buzzer dihubungkan ke GND ESP32.
+
+Buzzer digunakan sebagai indikator suara yang akan aktif bersamaan dengan pompa ketika sistem mendeteksi kondisi tanah kering atau udara panas dan kering. Buzzer akan mati ketika kondisi tanah sudah kembali basah.
+
+#### 6. ESP32
+
+ESP32 berfungsi sebagai pusat pengendali sistem. Mikrokontroler ini membaca data dari sensor soil moisture dan DHT11/DHT22, kemudian mengontrol relay, pompa air, dan buzzer sesuai kondisi lingkungan yang terdeteksi.
+
