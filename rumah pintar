@@ -1,0 +1,45 @@
+#include <Servo.h>
+
+const int pinLDR = 4;
+const int pinLED = 3;
+const int pinHujan = 2;
+const int pinServo = 9;
+
+Servo servoJendela;
+
+void setup() {
+  Serial.begin(9600);
+  
+  pinMode(pinLDR, INPUT);
+  pinMode(pinLED, OUTPUT);
+  pinMode(pinHujan, INPUT);
+  
+  servoJendela.attach(pinServo);
+  
+  servoJendela.write(0); 
+  Serial.println("Sistem Rumah Pintar (Digital LDR) Dimulai...");
+}
+
+void loop() {
+  int statusGelap = digitalRead(pinLDR); 
+  
+  if (statusGelap == HIGH) {
+    digitalWrite(pinLED, HIGH);
+    Serial.print("Lampu: NYALA (GELAP)");
+  } else {
+    digitalWrite(pinLED, LOW);
+    Serial.print("Lampu: MATI (TERANG)");
+  }
+
+  int statusHujan = digitalRead(pinHujan); 
+  
+  if (statusHujan == LOW) {
+    servoJendela.write(90);
+    Serial.println(" | Cuaca: HUJAN -> Atap MENUTUP (90°)");
+  } else {
+    servoJendela.write(0);
+    Serial.println(" | Cuaca: CERAH -> Atap TERBUKA (0°)");
+  }
+
+  delay(1000); 
+}
