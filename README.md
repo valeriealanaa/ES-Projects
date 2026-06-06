@@ -48,3 +48,41 @@ Pada Program 2, buzzer dikendalikan menggunakan logika digital HIGH dan LOW mela
 6. **ESP32**
 
    * ESP32 berfungsi sebagai pengendali utama sistem, membaca data dari sensor, mengontrol aktuator, serta mengirimkan data suhu, kelembapan, dan level pakan ke aplikasi Blynk melalui koneksi WiFi.
+
+### Rumah Pintar ###
+
+#### 1. Sensor LDR Digital
+
+* Pin VCC sensor LDR dihubungkan ke pin 5V Arduino.
+* Pin GND sensor LDR dihubungkan ke GND Arduino.
+* Pin OUT sensor LDR dihubungkan ke pin digital 4 Arduino.
+
+Sensor LDR digunakan untuk mendeteksi intensitas cahaya di lingkungan. Ketika kondisi lingkungan gelap, sensor akan memberikan sinyal HIGH sehingga lampu LED dinyalakan secara otomatis. Sebaliknya, ketika kondisi terang, LED akan dimatikan.
+
+#### 2. LED
+
+* Kaki anoda (+) LED dihubungkan ke pin digital 3 Arduino melalui resistor 220Ω.
+* Kaki katoda (-) LED dihubungkan ke GND Arduino.
+
+LED berfungsi sebagai simulasi lampu ruangan yang akan menyala saat kondisi gelap dan mati saat kondisi terang berdasarkan pembacaan sensor LDR.
+
+#### 3. Sensor Hujan (Raindrop Sensor)
+
+* Pin VCC sensor hujan dihubungkan ke pin 5V Arduino.
+* Pin GND sensor hujan dihubungkan ke GND Arduino.
+* Pin DO (Digital Output) sensor hujan dihubungkan ke pin digital 2 Arduino.
+
+Sensor hujan digunakan untuk mendeteksi adanya air hujan. Ketika permukaan sensor terkena air, sensor akan memberikan sinyal LOW yang digunakan sebagai indikator kondisi hujan.
+
+#### 4. Motor Servo
+
+* Kabel VCC (merah) servo dihubungkan ke pin 5V Arduino.
+* Kabel GND (cokelat/hitam) servo dihubungkan ke GND Arduino.
+* Kabel sinyal (oranye/kuning) servo dihubungkan ke pin digital 9 Arduino.
+
+Motor servo berfungsi sebagai simulasi atap atau jendela otomatis. Saat sensor hujan mendeteksi hujan, servo akan bergerak ke posisi 90° untuk menutup atap. Ketika cuaca cerah, servo akan kembali ke posisi 0° sehingga atap terbuka.
+
+#### 5. Arduino Uno
+
+Arduino Uno berfungsi sebagai pusat pengendali sistem. Arduino membaca data dari sensor LDR dan sensor hujan, kemudian mengendalikan LED dan motor servo sesuai kondisi lingkungan yang terdeteksi.
+
