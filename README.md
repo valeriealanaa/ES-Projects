@@ -49,7 +49,7 @@ Pada Program 2, buzzer dikendalikan menggunakan logika digital HIGH dan LOW mela
 
    * ESP32 berfungsi sebagai pengendali utama sistem, membaca data dari sensor, mengontrol aktuator, serta mengirimkan data suhu, kelembapan, dan level pakan ke aplikasi Blynk melalui koneksi WiFi.
 
-### Rumah Pintar ###
+### RUMAH PINTAR ###
 
 #### 1. Sensor LDR Digital
 
