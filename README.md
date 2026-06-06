@@ -26,7 +26,18 @@ Sistem ini menggunakan mikrokontroler ESP32 sebagai pusat kendali yang terhubung
 
    Buzzer berfungsi sebagai alarm ketika suhu lingkungan melebihi batas yang telah ditentukan.
 
-4. **Motor Servo**
+   **Buzzer (Program 2)**
+Pin positif (+) buzzer dihubungkan ke GPIO 12 ESP32.
+Pin negatif (-) buzzer dihubungkan ke GND ESP32.
+atau jika menggunakan modul buzzer:
+
+VCC → 3.3V/5V
+GND → GND
+SIG → GPIO 12
+
+Pada Program 2, buzzer dikendalikan menggunakan logika digital HIGH dan LOW melalui fungsi digitalWrite(). Ketika suhu yang terdeteksi sensor DHT11 melebihi 32°C, ESP32 memberikan sinyal HIGH sehingga buzzer menyala. Sebaliknya, jika suhu berada pada kondisi normal, ESP32 memberikan sinyal LOW sehingga buzzer mati.
+
+5. **Motor Servo**
 
    * Kabel VCC (merah) servo dihubungkan ke pin 5V ESP32.
    * Kabel GND (cokelat/hitam) servo dihubungkan ke GND ESP32.
@@ -34,6 +45,6 @@ Sistem ini menggunakan mikrokontroler ESP32 sebagai pusat kendali yang terhubung
 
    Motor servo digunakan untuk membuka dan menutup mekanisme penyaluran pakan secara otomatis ketika pakan terdeteksi hampir habis.
 
-5. **ESP32**
+6. **ESP32**
 
    * ESP32 berfungsi sebagai pengendali utama sistem, membaca data dari sensor, mengontrol aktuator, serta mengirimkan data suhu, kelembapan, dan level pakan ke aplikasi Blynk melalui koneksi WiFi.
